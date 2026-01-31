@@ -6,18 +6,110 @@
 <title>Islamic Support & Healing</title>
 
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f2faf8;color:#2f3e3e;line-height:1.7}
-.hero{background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url("https://images.unsplash.com/photo-1529070538774-1843cb3265df");background-size:cover;background-position:center;color:#fff;text-align:center;padding:90px 20px}
-section{max-width:950px;margin:auto;padding:45px 20px}
-h2{color:#2f6f66}
-.box{background:#fff;padding:25px;border-left:6px solid #c9a24d;border-radius:8px;margin-top:15px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.highlight{background:#eef7f5;border-left:6px solid #2f6f66}
-input,textarea,select{width:100%;padding:11px;margin-top:10px;border-radius:6px;border:1px solid #ccc}
-button{background:#2f6f66;color:#fff;border:none;padding:12px 22px;margin-top:12px;cursor:pointer;border-radius:6px}
-.notice{background:#fff5df;padding:14px;border-left:5px solid #c9a24d;font-size:14px;margin-top:15px}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#e6f6f2,#fef6e4);
+  color:#2f3e3e;
+  line-height:1.7
+}
+.hero{
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+  url("https://images.unsplash.com/photo-1529070538774-1843cb3265df");
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+  padding:100px 20px
+}
+section{max-width:1000px;margin:auto;padding:50px 20px}
+h2{color:#1f6f63}
+.box{
+  background:#ffffff;
+  padding:28px;
+  border-left:6px solid #d4a73c;
+  border-radius:10px;
+  margin-top:18px;
+  box-shadow:0 6px 20px rgba(0,0,0,.08)
+}
+.highlight{
+  background:linear-gradient(135deg,#e8fff8,#fff9e6);
+  border-left:6px solid #1f6f63
+}
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ccc
+}
+button{
+  background:linear-gradient(135deg,#1f6f63,#2fa28f);
+  color:#fff;
+  border:none;
+  padding:14px 26px;
+  margin-top:14px;
+  cursor:pointer;
+  border-radius:30px;
+  font-size:15px
+}
+.notice{
+  background:#fff3d6;
+  padding:16px;
+  border-left:5px solid #d4a73c;
+  font-size:14px;
+  margin-top:18px
+}
 .small{font-size:14px;color:#555}
-footer{background:#dfeeea;text-align:center;padding:30px;font-size:14px}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 22px;border-radius:50px;text-decoration:none;font-weight:bold}
+footer{
+  background:#1f6f63;
+  color:#fff;
+  text-align:center;
+  padding:35px;
+  font-size:14px
+}
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:16px 24px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold
+}
+#bot{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:#2fa28f;
+  color:#fff;
+  padding:14px 20px;
+  border-radius:50px;
+  cursor:pointer
+}
+#botBox{
+  display:none;
+  position:fixed;
+  bottom:150px;
+  right:20px;
+  background:#fff;
+  width:300px;
+  border-radius:10px;
+  box-shadow:0 0 15px rgba(0,0,0,.2)
+}
+#botBox div{
+  padding:12px;
+  border-bottom:1px solid #eee;
+  cursor:pointer
+}
+.stars span{
+  font-size:26px;
+  cursor:pointer;
+  color:#ccc
+}
+.stars span.active{color:#f5b301}
 </style>
 </head>
 
@@ -30,12 +122,26 @@ Led by <strong>Waqimaa Jorgie</strong></p>
 </div>
 
 <section>
+<h2>What This Service Is</h2>
+<div class="box">
+<p>
+Islamic Support & Healing is a women-only, faith-based support service for those affected by abuse.
+Support is grounded in Islamic principles, safeguarding, dignity, and emotional care.
+</p>
+<p>
+This is <strong>not therapy</strong>, <strong>not crisis intervention</strong>, and <strong>not emergency care</strong>.
+</p>
+</div>
+</section>
+
+<section>
 <h2>Before You Book</h2>
 <div class="box highlight">
 <ul>
-<li>Faith-based emotional support (not therapy or emergency care)</li>
-<li>Sessions are scheduled, paid, and time-limited</li>
-<li>Safeguarding and child-safety reporting applies</li>
+<li>Women-only service</li>
+<li>Sessions are booked, paid, and scheduled</li>
+<li>WhatsApp is for scheduling & brief questions only</li>
+<li>Mandatory safeguarding & child safety applies</li>
 </ul>
 </div>
 </section>
@@ -48,26 +154,24 @@ Led by <strong>Waqimaa Jorgie</strong></p>
       method="POST"
       enctype="multipart/form-data">
 
-<!-- REQUIRED FOR FORMSUBMIT -->
 <input type="hidden" name="_subject" value="New Booking – Islamic Support & Healing">
-<input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 
-<!-- AUTO-REPLY TO CLIENT -->
 <input type="hidden" name="_autoresponse" value="
 As-salaamu alaykum,
 
-Thank you for contacting Islamic Support & Healing.
+Thank you for your booking request.
 
 This is a women-only, faith-based support service.
-WhatsApp is used for scheduling and brief questions only.
-Support is provided during booked sessions.
+Support is provided during booked sessions only.
+WhatsApp is for scheduling and brief questions.
 
 This is not emergency or crisis care.
 
-You will be contacted after your request and payment are reviewed.
+You will be contacted after review.
 
-May Allah grant you ease and protection.
+— Islamic Support & Healing
 ">
 
 <input name="Full Name" placeholder="Full Name" required>
@@ -80,13 +184,13 @@ May Allah grant you ease and protection.
 </select>
 
 <select name="Payment Method" required>
-<option value="">How did you pay?</option>
+<option value="">Payment Method</option>
 <option>PayPal</option>
 <option>Bank Transfer (Capitec)</option>
 </select>
 
 <select name="Payment Status" required>
-<option value="">Payment status</option>
+<option value="">Payment Status</option>
 <option>I have completed payment</option>
 <option>I will pay after submitting</option>
 </select>
@@ -105,25 +209,43 @@ I confirm this is not emergency support and I agree to the Terms & Conditions
 </form>
 
 <div class="notice">
-<strong>Payment Options</strong><br>
-PayPal<br>
-Capitec Bank Account: <strong>2349215993</strong><br>
-Reference: Your Full Name
+<strong>Payment Options</strong><br><br>
+
+<strong>PayPal:</strong><br>
+<a href="https://www.paypal.me/syesmith24" target="_blank">Click here to pay via PayPal</a><br><br>
+
+<strong>Capitec Bank</strong><br>
+Account Number: <strong>2349215993</strong><br>
+<strong>Reference:</strong> <em>Your Full Name (payer’s name)</em>
 </div>
 
 </div>
 </section>
 
-<section id="terms">
-<h2>Terms & Conditions</h2>
-<div class="box small">
-• Women-only service<br>
-• Not crisis or emergency care<br>
-• Safeguarding and mandatory reporting apply<br>
-• Payment required before sessions<br>
-• No refunds for missed appointments<br>
-• Confidential but not secret<br>
-• Islamic boundaries are maintained
+<section>
+<h2>Leave Feedback (Optional)</h2>
+<div class="box">
+
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Client Feedback">
+<input type="hidden" name="_captcha" value="false">
+
+<label class="small">Your rating:</label>
+<div class="stars" id="stars">
+<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+</div>
+<input type="hidden" name="Rating" id="rating">
+
+<textarea name="Feedback" placeholder="Your comments (optional)"></textarea>
+
+<label class="small">
+<input type="checkbox" required>
+I give permission for this feedback to be reviewed
+</label>
+
+<button type="submit">Send Feedback</button>
+</form>
+
 </div>
 </section>
 
@@ -137,6 +259,44 @@ Founded by <strong>Waqimaa Jorgie</strong>
 <a class="whatsapp" href="https://wa.me/27793851140" target="_blank">
 WhatsApp (Scheduling Only)
 </a>
+
+<div id="bot" onclick="toggleBot()">Ask Assistant</div>
+<div id="botBox">
+<div>What is this service?</div>
+<div>Is this for women only?</div>
+<div>How do payments work?</div>
+<div>Is this Islamic?</div>
+<div>Is this emergency help?</div>
+</div>
+
+<script>
+function toggleBot(){
+  const b=document.getElementById("botBox");
+  b.style.display=b.style.display==="block"?"none":"block";
+}
+document.querySelectorAll("#botBox div").forEach(q=>{
+  q.onclick=()=>alert(
+    q.innerText.includes("service")?
+    "A women-only faith-based support service for those affected by abuse.":
+    q.innerText.includes("women")?
+    "Yes. This service is strictly for women.":
+    q.innerText.includes("payments")?
+    "Payments are made via PayPal or bank transfer before sessions.":
+    q.innerText.includes("Islamic")?
+    "Yes. Guided by Islamic principles, dignity, and safeguarding.":
+    "No. This is not emergency or crisis support."
+  );
+});
+
+const stars=document.querySelectorAll(".stars span");
+stars.forEach((s,i)=>{
+  s.onclick=()=>{
+    stars.forEach(st=>st.classList.remove("active"));
+    for(let j=0;j<=i;j++)stars[j].classList.add("active");
+    document.getElementById("rating").value=i+1+" stars";
+  };
+});
+</script>
 
 </body>
 </html>
