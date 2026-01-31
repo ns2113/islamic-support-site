@@ -83,8 +83,8 @@ I confirm this is not emergency support and I agree to the
 
 <div class="notice">
 <strong>Payment Options</strong><br>
-PayPal: <strong>syesmith24</strong><br>
-Capitec Bank: <strong>2349215993</strong><br>
+PayPal<br>
+Capitec Bank Account: <strong>2349215993</strong><br>
 Reference: Your Full Name
 </div>
 
@@ -100,7 +100,7 @@ Reference: Your Full Name
 • Payment required before sessions<br>
 • No refunds for missed appointments<br>
 • Confidential but not secret<br>
-• Boundaries are maintained at all times
+• Islamic boundaries are maintained
 </div>
 </section>
 
@@ -108,7 +108,7 @@ Reference: Your Full Name
 <h2>Share This Service</h2>
 <div class="box">
 <p>You may share this link with women who may benefit:</p>
-<input value="https://islamic-support-healing.github.io" readonly onclick="this.select()">
+<input value="https://ns2113.github.io/islamic-support-site/" readonly onclick="this.select()">
 <button onclick="copyLink()">Copy Share Link</button>
 </div>
 </section>
@@ -137,6 +137,7 @@ I give permission for this testimonial to be used anonymously
 <footer>
 © 2026 Islamic Support & Healing<br>
 Contact: <strong>abuseawareness12@gmail.com</strong><br>
+Website: https://ns2113.github.io/islamic-support-site/<br>
 Founded by <strong>Waqimaa Jorgie</strong>
 </footer>
 
@@ -147,21 +148,4 @@ function sendBooking(e){
   e.preventDefault();
   const box=document.getElementById("responseBox");
   emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",e.target)
-  .then(()=>{box.style.display="block";box.innerText="Request received. Payment will be verified before confirmation.";e.target.reset();});
-}
-
-function sendTestimonial(e){
-  e.preventDefault();
-  const box=document.getElementById("testimonialBox");
-  emailjs.sendForm("YOUR_SERVICE_ID","TESTIMONIAL_TEMPLATE_ID",e.target)
-  .then(()=>{box.style.display="block";box.innerText="Thank you. Your testimonial was received.";e.target.reset();});
-}
-
-function copyLink(){
-  navigator.clipboard.writeText("https://islamic-support-healing.github.io");
-  alert("Link copied");
-}
-</script>
-
-</body>
-</html>
+  .then(()=>{box.style.display="block";box.inner
