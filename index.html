@@ -6,9 +6,10 @@
 <title>Islamic Support & Healing</title>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
 (function(){
-  emailjs.init("YOUR_PUBLIC_KEY");
+  emailjs.init("gOuRQtPY260LSU4E9");
 })();
 </script>
 
@@ -20,6 +21,7 @@ h2{color:#2f6f66}
 .box{background:#fff;padding:25px;border-left:6px solid #c9a24d;border-radius:8px;margin-top:15px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .highlight{background:#eef7f5;border-left:6px solid #2f6f66}
 input,textarea,select{width:100%;padding:11px;margin-top:10px;border-radius:6px;border:1px solid #ccc}
+input[type=file]{background:#fff}
 button{background:#2f6f66;color:#fff;border:none;padding:12px 22px;margin-top:12px;cursor:pointer;border-radius:6px}
 .notice{background:#fff5df;padding:14px;border-left:5px solid #c9a24d;font-size:14px;margin-top:15px}
 #responseBox{display:none;margin-top:15px;padding:14px;background:#e6f6f2;border-left:5px solid #2f6f66}
@@ -52,7 +54,8 @@ Led by <strong>Waqimaa Jorgie</strong></p>
 <h2>Book an Appointment</h2>
 <div class="box">
 
-<form onsubmit="sendBooking(event)">
+<form id="bookingForm" enctype="multipart/form-data">
+
 <input name="name" placeholder="Full Name" required>
 <input type="email" name="email" placeholder="Email" required>
 
@@ -67,6 +70,15 @@ Led by <strong>Waqimaa Jorgie</strong></p>
 <option>PayPal</option>
 <option>Bank Transfer (Capitec)</option>
 </select>
+
+<select name="payment_status" required>
+<option value="">Payment status</option>
+<option>I have completed payment</option>
+<option>I will pay after submitting</option>
+</select>
+
+<label class="small"><strong>Upload Proof of Payment (optional but recommended)</strong></label>
+<input type="file" name="proof_of_payment" accept=".jpg,.jpeg,.png,.pdf">
 
 <textarea name="message" placeholder="Brief message (optional)"></textarea>
 
@@ -104,36 +116,6 @@ Reference: Your Full Name
 </div>
 </section>
 
-<section>
-<h2>Share This Service</h2>
-<div class="box">
-<p>You may share this link with women who may benefit:</p>
-<input value="https://ns2113.github.io/islamic-support-site/" readonly onclick="this.select()">
-<button onclick="copyLink()">Copy Share Link</button>
-</div>
-</section>
-
-<section>
-<h2>Submit a Testimonial (Optional)</h2>
-<div class="box">
-
-<form onsubmit="sendTestimonial(event)">
-<input name="t_name" placeholder="Name (or Anonymous)">
-<textarea name="testimonial" placeholder="Your experience" required></textarea>
-
-<label class="small">
-<input type="checkbox" required>
-I give permission for this testimonial to be used anonymously
-</label>
-
-<button type="submit">Submit Testimonial</button>
-</form>
-
-<div id="testimonialBox"></div>
-
-</div>
-</section>
-
 <footer>
 © 2026 Islamic Support & Healing<br>
 Contact: <strong>abuseawareness12@gmail.com</strong><br>
@@ -144,8 +126,32 @@ Founded by <strong>Waqimaa Jorgie</strong>
 <a class="whatsapp" href="https://wa.me/27793851140" target="_blank">WhatsApp</a>
 
 <script>
-function sendBooking(e){
+document.getElementById("bookingForm").addEventListener("submit", function(e){
   e.preventDefault();
-  const box=document.getElementById("responseBox");
-  emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",e.target)
-  .then(()=>{box.style.display="block";box.inner
+  const box = document.getElementById("responseBox");
+
+  // ADMIN EMAIL (WITH ATTACHMENT)
+  emailjs.sendForm(
+    "service_uqn739h",
+    "contact_us",
+    this
+  );
+
+  // CLIENT AUTO-REPLY
+  emailjs.sendForm(
+    "service_uqn739h",
+    "auto_reply",
+    this
+  ).then(function(){
+    box.style.display = "block";
+    box.innerText = "Your booking request was received. Please check your email.";
+    document.getElementById("bookingForm").reset();
+  }).catch(function(){
+    box.style.display = "block";
+    box.innerText = "There was an error. Please email abuseawareness12@gmail.com.";
+  });
+});
+</script>
+
+</body>
+</html>
