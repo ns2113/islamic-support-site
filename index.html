@@ -5,14 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Islamic Support & Healing</title>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<script>
-(function(){
-  emailjs.init("gOuRQtPY260LSU4E9");
-})();
-</script>
-
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#f2faf8;color:#2f3e3e;line-height:1.7}
 .hero{background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url("https://images.unsplash.com/photo-1529070538774-1843cb3265df");background-size:cover;background-position:center;color:#fff;text-align:center;padding:90px 20px}
@@ -21,13 +13,11 @@ h2{color:#2f6f66}
 .box{background:#fff;padding:25px;border-left:6px solid #c9a24d;border-radius:8px;margin-top:15px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 .highlight{background:#eef7f5;border-left:6px solid #2f6f66}
 input,textarea,select{width:100%;padding:11px;margin-top:10px;border-radius:6px;border:1px solid #ccc}
-input[type=file]{background:#fff}
 button{background:#2f6f66;color:#fff;border:none;padding:12px 22px;margin-top:12px;cursor:pointer;border-radius:6px}
 .notice{background:#fff5df;padding:14px;border-left:5px solid #c9a24d;font-size:14px;margin-top:15px}
-#responseBox{display:none;margin-top:15px;padding:14px;background:#e6f6f2;border-left:5px solid #2f6f66}
+.small{font-size:14px;color:#555}
 footer{background:#dfeeea;text-align:center;padding:30px;font-size:14px}
 .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 22px;border-radius:50px;text-decoration:none;font-weight:bold}
-.small{font-size:14px;color:#555}
 </style>
 </head>
 
@@ -54,44 +44,65 @@ Led by <strong>Waqimaa Jorgie</strong></p>
 <h2>Book an Appointment</h2>
 <div class="box">
 
-<form id="bookingForm" enctype="multipart/form-data">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com"
+      method="POST"
+      enctype="multipart/form-data">
 
-<input name="name" placeholder="Full Name" required>
-<input type="email" name="email" placeholder="Email" required>
+<!-- REQUIRED FOR FORMSUBMIT -->
+<input type="hidden" name="_subject" value="New Booking – Islamic Support & Healing">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
 
-<select name="session" required>
+<!-- AUTO-REPLY TO CLIENT -->
+<input type="hidden" name="_autoresponse" value="
+As-salaamu alaykum,
+
+Thank you for contacting Islamic Support & Healing.
+
+This is a women-only, faith-based support service.
+WhatsApp is used for scheduling and brief questions only.
+Support is provided during booked sessions.
+
+This is not emergency or crisis care.
+
+You will be contacted after your request and payment are reviewed.
+
+May Allah grant you ease and protection.
+">
+
+<input name="Full Name" placeholder="Full Name" required>
+<input type="email" name="Email" placeholder="Email" required>
+
+<select name="Session Type" required>
 <option value="">Session Type</option>
 <option>Initial Support Session</option>
 <option>Follow-Up Session</option>
 </select>
 
-<select name="payment_method" required>
+<select name="Payment Method" required>
 <option value="">How did you pay?</option>
 <option>PayPal</option>
 <option>Bank Transfer (Capitec)</option>
 </select>
 
-<select name="payment_status" required>
+<select name="Payment Status" required>
 <option value="">Payment status</option>
 <option>I have completed payment</option>
 <option>I will pay after submitting</option>
 </select>
 
-<label class="small"><strong>Upload Proof of Payment (optional but recommended)</strong></label>
-<input type="file" name="proof_of_payment" accept=".jpg,.jpeg,.png,.pdf">
+<label class="small"><strong>Upload proof of payment (optional)</strong></label>
+<input type="file" name="Proof of Payment" accept=".jpg,.jpeg,.png,.pdf">
 
-<textarea name="message" placeholder="Brief message (optional)"></textarea>
+<textarea name="Message" placeholder="Brief message (optional)"></textarea>
 
 <label class="small">
 <input type="checkbox" required>
-I confirm this is not emergency support and I agree to the
-<a href="#terms">Terms & Conditions</a>
+I confirm this is not emergency support and I agree to the Terms & Conditions
 </label>
 
 <button type="submit">Submit Booking Request</button>
 </form>
-
-<div id="responseBox"></div>
 
 <div class="notice">
 <strong>Payment Options</strong><br>
@@ -123,35 +134,9 @@ Website: https://ns2113.github.io/islamic-support-site/<br>
 Founded by <strong>Waqimaa Jorgie</strong>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/27793851140" target="_blank">WhatsApp</a>
-
-<script>
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  const box = document.getElementById("responseBox");
-
-  // ADMIN EMAIL (WITH ATTACHMENT)
-  emailjs.sendForm(
-    "service_uqn739h",
-    "contact_us",
-    this
-  );
-
-  // CLIENT AUTO-REPLY
-  emailjs.sendForm(
-    "service_uqn739h",
-    "auto_reply",
-    this
-  ).then(function(){
-    box.style.display = "block";
-    box.innerText = "Your booking request was received. Please check your email.";
-    document.getElementById("bookingForm").reset();
-  }).catch(function(){
-    box.style.display = "block";
-    box.innerText = "There was an error. Please email abuseawareness12@gmail.com.";
-  });
-});
-</script>
+<a class="whatsapp" href="https://wa.me/27793851140" target="_blank">
+WhatsApp (Scheduling Only)
+</a>
 
 </body>
 </html>
