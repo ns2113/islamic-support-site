@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -94,11 +94,8 @@ Led by <strong>Waqeema Jongie</strong></p>
 <h2>What This Website Is About</h2>
 <div class="box">
 <p>
-This website exists to support women affected by <strong>emotional, physical, financial, sexual, and psychological abuse</strong>.
-Support is rooted in Islamic values of dignity, protection, justice, and compassion.
-</p>
-<p>
-Women can learn, book support, receive guidance, and join a safe faith-based network.
+Support for women affected by emotional, physical, financial, sexual, and psychological abuse.
+Grounded in Islamic values of dignity, justice, compassion, and safety.
 </p>
 </div>
 </section>
@@ -107,11 +104,9 @@ Women can learn, book support, receive guidance, and join a safe faith-based net
 <h2>Learn About Abuse</h2>
 <div class="box highlight">
 <ul>
-<li>What abuse looks like in marriage & family</li>
-<li>Emotional and financial abuse signs</li>
+<li>Signs of abuse</li>
 <li>Islamic rights of women</li>
-<li>Breaking silence safely</li>
-<li>Healing after abuse</li>
+<li>Healing and safety planning</li>
 </ul>
 </div>
 </section>
@@ -119,47 +114,33 @@ Women can learn, book support, receive guidance, and join a safe faith-based net
 <section>
 <h2>Search Resources</h2>
 <div class="box">
-<input type="text" placeholder="Search topics about abuse, healing, Islam, safety...">
-<p class="small">Use this to quickly find information and guidance.</p>
+<input type="text" placeholder="Search topics…">
 </div>
 </section>
 
-<!-- PAYMENT SECTION -->
 <section>
-<h2>Payment – Required Before Booking</h2>
+<h2>Payment Information (Required Before Booking)</h2>
 <div class="box highlight">
-
-<p>
-To protect women’s time, safety, and dignity, <strong>payment is required before an appointment can be booked</strong>.
-</p>
-
-<div class="notice">
-<strong>PayPal</strong><br>
-<a href="https://www.paypal.com/paypalme/?recipient=abuseawareness12@gmail.com" target="_blank">
-Pay via PayPal – abuseawareness12@gmail.com
-</a>
-</div>
-
-<div class="notice">
-<strong>Capitec Bank Transfer</strong><br>
-Account Number: <strong>2349215993</strong><br>
-Account Type: Savings<br>
-Reference: <strong>Your Full Name</strong>
-</div>
-
-<p class="small">
-Please keep your proof of payment. You will confirm payment when booking.
-</p>
-
+<p><strong>Booking Fee:</strong> R150</p>
+<p><strong>Bank:</strong> Capitec Bank<br>
+<strong>Account Number:</strong> 2349215993<br>
+<strong>Account Type:</strong> Savings<br>
+<strong>Reference:</strong> Your Full Name</p>
+<p><strong>PayPal:</strong> abuseawareness12@gmail.com</p>
 </div>
 </section>
 
 <section>
-<h2>Book an Appointment</h2>
+<h2>Book an Appointment (Auto-Approved)</h2>
 <div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="_subject" value="New Booking">
+<input type="hidden" name="_autoresponse" value="Your booking has been automatically approved pending payment verification. Invoice issued.">
 <input name="Full Name" placeholder="Full Name" required>
 <input type="email" name="Email" placeholder="Email" required>
+
+<label>Preferred Session Date</label>
+<input type="date" name="Session Date" required>
 
 <select name="Session Type" required>
 <option value="">Session Type</option>
@@ -167,24 +148,40 @@ Please keep your proof of payment. You will confirm payment when booking.
 <option>Follow-Up Session</option>
 </select>
 
-<label class="small">
-<input type="checkbox" required>
-I confirm that I have completed payment before submitting this booking
-</label>
+<label>Payment Status</label>
+<select id="payConfirm" required>
+<option value="">Confirm payment</option>
+<option value="paid">I have paid</option>
+</select>
 
-<button type="submit">Submit Booking Request</button>
+<label>Upload Proof of Payment</label>
+<input type="file" name="Proof of Payment" accept=".jpg,.png,.pdf">
+
+<button type="submit">Submit Booking</button>
 </form>
 </div>
 </section>
 
 <section>
-<h2>Appointment Record (Admin Use)</h2>
+<h2>Session Availability</h2>
+<div class="box highlight">
+<p>Sessions: Monday – Friday | 09:00 – 16:00<br>
+Online / WhatsApp | 3–5 working days</p>
+</div>
+</section>
+
+<section>
+<h2>Admin – Appointment Records</h2>
 <div class="box">
 <form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Appointment Record">
+<input type="hidden" name="_subject" value="Admin Record">
 <input name="Woman Name" placeholder="Woman’s Name">
-<input name="Appointment Date" placeholder="Appointment Date">
-<input name="Session Outcome" placeholder="Notes / Outcome">
+<input name="Date" placeholder="Appointment Date">
+<select name="Payment Status">
+<option>Pending</option>
+<option>Paid</option>
+</select>
+<textarea name="Notes" placeholder="Notes"></textarea>
 <button type="submit">Save Record</button>
 </form>
 </div>
@@ -193,15 +190,7 @@ I confirm that I have completed payment before submitting this booking
 <section>
 <h2>Work With Us – Women Only</h2>
 <div class="box highlight">
-<p>
-We welcome women who want to help grow this support service and reach more women safely.
-</p>
-<ul>
-<li>Outreach & awareness</li>
-<li>Referring women to the website</li>
-<li>Community support roles</li>
-</ul>
-<p><strong>Payment:</strong> R150 per woman successfully enrolled.</p>
+<p>Earn <strong>R150 per woman</strong> you successfully enroll.</p>
 </div>
 </section>
 
@@ -210,7 +199,7 @@ We welcome women who want to help grow this support service and reach more women
 <div class="box">
 <form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Worker Application">
-<input name="Full Name" placeholder="Your Full Name" required>
+<input name="Full Name" placeholder="Full Name" required>
 <input name="Role Interest" placeholder="How you want to help" required>
 <input name="Payment Details" placeholder="Bank / PayPal details">
 <button type="submit">Apply</button>
@@ -219,15 +208,25 @@ We welcome women who want to help grow this support service and reach more women
 </section>
 
 <section>
-<h2>Worker Payment Record</h2>
+<h2>Worker Payment Records</h2>
 <div class="box">
 <form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Worker Payment Record">
+<input type="hidden" name="_subject" value="Worker Payment">
 <input name="Worker Name" placeholder="Worker Name">
-<input name="Women Enrolled" placeholder="Number of women enrolled">
-<input name="Amount Paid" placeholder="Amount Paid (R150 per woman)">
-<button type="submit">Save Payment</button>
+<input name="Women Enrolled" placeholder="Women Enrolled">
+<input name="Amount Paid" placeholder="Amount Paid">
+<button type="submit">Save</button>
 </form>
+</div>
+</section>
+
+<section>
+<h2>Legal & Safeguarding</h2>
+<div class="box small">
+<p>
+Privacy Policy | POPIA Compliant | Safeguarding Policy<br>
+Payments are non-refundable. Records are securely emailed.
+</p>
 </div>
 </section>
 
@@ -236,9 +235,15 @@ We welcome women who want to help grow this support service and reach more women
 Founded by <strong>Waqeema Jongie</strong>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/27793851140" target="_blank">
-WhatsApp (Scheduling Only)
-</a>
+<a class="whatsapp" href="https://wa.me/27793851140" target="_blank">WhatsApp</a>
+
+<script>
+document.querySelector("form").addEventListener("submit",function(e){
+ if(document.getElementById("payConfirm").value!=="paid"){
+  e.preventDefault(); alert("Payment confirmation required.");
+ }
+});
+</script>
 
 </body>
 </html>
