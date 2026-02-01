@@ -23,7 +23,7 @@ body{
   padding:100px 20px
 }
 section{max-width:1000px;margin:auto;padding:50px 20px}
-h2{color:#1f6f63}
+h2,h3{color:#1f6f63}
 .box{
   background:#ffffff;
   padding:28px;
@@ -61,6 +61,7 @@ button{
   margin-top:18px
 }
 .small{font-size:14px;color:#555}
+.hidden{display:none}
 footer{
   background:#1f6f63;
   color:#fff;
@@ -91,107 +92,100 @@ Led by <strong>Waqeema Jongie</strong></p>
 </div>
 
 <section>
-<h2>What This Website Is About</h2>
-<div class="box">
-<p>
-This website exists to support women affected by <strong>emotional, physical, financial, sexual, and psychological abuse</strong>.
-Support is rooted in Islamic values of dignity, protection, justice, and compassion.
-</p>
-<p>
-Women can learn, book support, receive guidance, and join a safe faith-based network.
-</p>
-</div>
-</section>
-
-<section>
-<h2>Learn About Abuse</h2>
-<div class="box highlight">
-<ul>
-<li>What abuse looks like in marriage & family</li>
-<li>Emotional and financial abuse signs</li>
-<li>Islamic rights of women</li>
-<li>Breaking silence safely</li>
-<li>Healing after abuse</li>
-</ul>
-</div>
-</section>
-
-<section>
 <h2>Search Resources</h2>
 <div class="box">
 <input type="text" placeholder="Search topics about abuse, healing, Islam, safety...">
-<p class="small">Use this to quickly find information and guidance.</p>
+</div>
+</section>
+
+<section>
+<h2>Payment – Required Before Booking</h2>
+<div class="box highlight">
+
+<p><strong>Session Fees</strong></p>
+<ul>
+<li>Initial Support Session: <strong>R250</strong></li>
+<li>Follow-Up Session: <strong>R200</strong></li>
+</ul>
+
+<div class="notice">
+<strong>PayPal</strong><br>
+<a href="https://www.paypal.com/paypalme/?recipient=abuseawareness12@gmail.com" target="_blank">
+Pay via PayPal – abuseawareness12@gmail.com
+</a>
+</div>
+
+<div class="notice">
+<strong>Capitec Bank</strong><br>
+Account Number: <strong>2349215993</strong><br>
+Reference: <strong>Your Full Name</strong>
+</div>
+
 </div>
 </section>
 
 <section>
 <h2>Book an Appointment</h2>
 <div class="box">
-<!-- EXISTING FORM KEPT -->
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST" enctype="multipart/form-data">
+
+<input type="hidden" name="_subject" value="New Booking Request">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+
+<input type="hidden" name="_autoresponse" value="
+As-salaamu alaykum,
+
+Thank you for your booking request.
+Your payment and details have been received and will be reviewed.
+You will be contacted to confirm your session.
+
+Islamic Support & Healing
+">
+
 <input name="Full Name" placeholder="Full Name" required>
 <input type="email" name="Email" placeholder="Email" required>
+
 <select name="Session Type" required>
 <option value="">Session Type</option>
-<option>Initial Support Session</option>
-<option>Follow-Up Session</option>
+<option>Initial Support Session – R250</option>
+<option>Follow-Up Session – R200</option>
 </select>
+
+<select name="Payment Status" required>
+<option value="">Payment Status</option>
+<option>I have completed payment</option>
+<option>I will complete payment today</option>
+</select>
+
+<label class="small"><strong>Upload proof of payment</strong></label>
+<input type="file" name="Proof of Payment" accept=".jpg,.jpeg,.png,.pdf">
+
+<label class="small">
+<input type="checkbox" required>
+I confirm that I have completed payment before booking
+</label>
+
 <button type="submit">Submit Booking Request</button>
 </form>
 </div>
 </section>
 
 <section>
-<h2>Appointment Record (Admin Use)</h2>
+<h2>Admin – Payment Review</h2>
 <div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Appointment Record">
-<input name="Woman Name" placeholder="Woman’s Name">
-<input name="Appointment Date" placeholder="Appointment Date">
-<input name="Session Outcome" placeholder="Notes / Outcome">
-<button type="submit">Save Record</button>
-</form>
-</div>
-</section>
+<input type="password" id="adminPass" placeholder="Admin password">
+<button onclick="adminLogin()">Access</button>
 
-<section>
-<h2>Work With Us – Women Only</h2>
-<div class="box highlight">
-<p>
-We welcome women who want to help grow this support service and reach more women safely.
+<div id="adminPanel" class="hidden">
+<p class="small">
+All booking submissions, proof of payment, and details are sent directly to
+<strong>abuseawareness12@gmail.com</strong>.
 </p>
-<ul>
-<li>Outreach & awareness</li>
-<li>Referring women to the website</li>
-<li>Community support roles</li>
-</ul>
-<p><strong>Payment:</strong> R150 per woman successfully enrolled.</p>
+<p>
+Review payments via your email inbox. This page confirms admin-only access.
+</p>
 </div>
-</section>
-
-<section>
-<h2>Freelancer / Worker Application</h2>
-<div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Worker Application">
-<input name="Full Name" placeholder="Your Full Name" required>
-<input name="Role Interest" placeholder="How you want to help" required>
-<input name="Payment Details" placeholder="Bank / PayPal details">
-<button type="submit">Apply</button>
-</form>
-</div>
-</section>
-
-<section>
-<h2>Worker Payment Record</h2>
-<div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Worker Payment Record">
-<input name="Worker Name" placeholder="Worker Name">
-<input name="Women Enrolled" placeholder="Number of women enrolled">
-<input name="Amount Paid" placeholder="Amount Paid (R150 per woman)">
-<button type="submit">Save Payment</button>
-</form>
 </div>
 </section>
 
@@ -203,6 +197,16 @@ Founded by <strong>Waqeema Jongie</strong>
 <a class="whatsapp" href="https://wa.me/27793851140" target="_blank">
 WhatsApp (Scheduling Only)
 </a>
+
+<script>
+function adminLogin(){
+  if(document.getElementById("adminPass").value==="admin123"){
+    document.getElementById("adminPanel").classList.remove("hidden");
+  }else{
+    alert("Incorrect password");
+  }
+}
+</script>
 
 </body>
 </html>
