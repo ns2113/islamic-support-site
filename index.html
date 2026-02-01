@@ -79,6 +79,8 @@ footer{
   text-decoration:none;
   font-weight:bold
 }
+.hidden{display:none}
+mark{background:#ffe08a}
 </style>
 </head>
 
@@ -90,7 +92,7 @@ footer{
 Led by <strong>Waqeema Jongie</strong></p>
 </div>
 
-<section>
+<section class="searchable">
 <h2>What This Website Is About</h2>
 <div class="box">
 <p>
@@ -100,7 +102,7 @@ Grounded in Islamic values of dignity, justice, compassion, and safety.
 </div>
 </section>
 
-<section>
+<section class="searchable">
 <h2>Learn About Abuse</h2>
 <div class="box highlight">
 <ul>
@@ -114,13 +116,14 @@ Grounded in Islamic values of dignity, justice, compassion, and safety.
 <section>
 <h2>Search Resources</h2>
 <div class="box">
-<input type="text" placeholder="Search topics…">
+<input type="text" id="searchInput" placeholder="Search topics…">
+<p id="noResults" class="small hidden">No results found.</p>
 </div>
 </section>
 
 <section>
 <h2>Payment Information (Required Before Booking)</h2>
-<div class="box highlight">
+<div class="box highlight searchable">
 <p><strong>Booking Fee:</strong> R150</p>
 <p><strong>Bank:</strong> Capitec Bank<br>
 <strong>Account Number:</strong> 2349215993<br>
@@ -133,13 +136,12 @@ Grounded in Islamic values of dignity, justice, compassion, and safety.
 <section>
 <h2>Book an Appointment (Auto-Approved)</h2>
 <div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST" enctype="multipart/form-data">
+<form id="bookingForm" action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="_subject" value="New Booking">
-<input type="hidden" name="_autoresponse" value="Your booking has been automatically approved pending payment verification. Invoice issued.">
-<input name="Full Name" placeholder="Full Name" required>
-<input type="email" name="Email" placeholder="Email" required>
+<input type="hidden" name="_autoresponse" value="Your booking request has been received. Payment will be manually verified before final confirmation.">
 
-<label>Preferred Session Date</label>
+<input name="Full Name" required placeholder="Full Name">
+<input type="email" name="Email" required placeholder="Email">
 <input type="date" name="Session Date" required>
 
 <select name="Session Type" required>
@@ -148,21 +150,18 @@ Grounded in Islamic values of dignity, justice, compassion, and safety.
 <option>Follow-Up Session</option>
 </select>
 
-<label>Payment Status</label>
 <select id="payConfirm" required>
 <option value="">Confirm payment</option>
 <option value="paid">I have paid</option>
 </select>
 
-<label>Upload Proof of Payment</label>
 <input type="file" name="Proof of Payment" accept=".jpg,.png,.pdf">
-
 <button type="submit">Submit Booking</button>
 </form>
 </div>
 </section>
 
-<section>
+<section class="searchable">
 <h2>Session Availability</h2>
 <div class="box highlight">
 <p>Sessions: Monday – Friday | 09:00 – 16:00<br>
@@ -173,8 +172,10 @@ Online / WhatsApp | 3–5 working days</p>
 <section>
 <h2>Admin – Appointment Records</h2>
 <div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Admin Record">
+<input type="password" id="adminPass" placeholder="Admin password">
+<button onclick="unlockAdmin()">Unlock</button>
+
+<form id="adminForm" class="hidden">
 <input name="Woman Name" placeholder="Woman’s Name">
 <input name="Date" placeholder="Appointment Date">
 <select name="Payment Status">
@@ -184,10 +185,12 @@ Online / WhatsApp | 3–5 working days</p>
 <textarea name="Notes" placeholder="Notes"></textarea>
 <button type="submit">Save Record</button>
 </form>
+
+<ul id="adminList"></ul>
 </div>
 </section>
 
-<section>
+<section class="searchable">
 <h2>Work With Us – Women Only</h2>
 <div class="box highlight">
 <p>Earn <strong>R150 per woman</strong> you successfully enroll.</p>
@@ -197,10 +200,10 @@ Online / WhatsApp | 3–5 working days</p>
 <section>
 <h2>Freelancer / Worker Application</h2>
 <div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<form id="workerForm" action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Worker Application">
-<input name="Full Name" placeholder="Full Name" required>
-<input name="Role Interest" placeholder="How you want to help" required>
+<input name="Full Name" required placeholder="Full Name">
+<input name="Role Interest" required placeholder="How you want to help">
 <input name="Payment Details" placeholder="Bank / PayPal details">
 <button type="submit">Apply</button>
 </form>
@@ -210,19 +213,19 @@ Online / WhatsApp | 3–5 working days</p>
 <section>
 <h2>Worker Payment Records</h2>
 <div class="box">
-<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input type="hidden" name="_subject" value="Worker Payment">
-<input name="Worker Name" placeholder="Worker Name">
-<input name="Women Enrolled" placeholder="Women Enrolled">
-<input name="Amount Paid" placeholder="Amount Paid">
+<form id="paymentForm">
+<input placeholder="Worker Name">
+<input placeholder="Women Enrolled">
+<input placeholder="Amount Paid">
 <button type="submit">Save</button>
 </form>
+<ul id="paymentList"></ul>
 </div>
 </section>
 
 <section>
 <h2>Legal & Safeguarding</h2>
-<div class="box small">
+<div class="box small searchable">
 <p>
 Privacy Policy | POPIA Compliant | Safeguarding Policy<br>
 Payments are non-refundable. Records are securely emailed.
@@ -238,10 +241,50 @@ Founded by <strong>Waqeema Jongie</strong>
 <a class="whatsapp" href="https://wa.me/27793851140" target="_blank">WhatsApp</a>
 
 <script>
-document.querySelector("form").addEventListener("submit",function(e){
+const ADMIN_PASSWORD="admin123";
+
+/* Booking payment check */
+document.getElementById("bookingForm").addEventListener("submit",e=>{
  if(document.getElementById("payConfirm").value!=="paid"){
-  e.preventDefault(); alert("Payment confirmation required.");
+  e.preventDefault();
+  alert("Payment confirmation required.");
  }
+});
+
+/* Search */
+document.getElementById("searchInput").addEventListener("input",function(){
+ let q=this.value.toLowerCase(),found=false;
+ document.querySelectorAll(".searchable").forEach(sec=>{
+  let text=sec.innerText.toLowerCase();
+  sec.style.display=text.includes(q)?"block":"none";
+  if(text.includes(q))found=true;
+ });
+ document.getElementById("noResults").classList.toggle("hidden",found);
+});
+
+/* Admin unlock */
+function unlockAdmin(){
+ if(document.getElementById("adminPass").value===ADMIN_PASSWORD){
+  document.getElementById("adminForm").classList.remove("hidden");
+ }
+}
+
+/* Admin records */
+adminForm.addEventListener("submit",e=>{
+ e.preventDefault();
+ let li=document.createElement("li");
+ li.textContent=new FormData(adminForm).get("Woman Name");
+ adminList.appendChild(li);
+ adminForm.reset();
+});
+
+/* Worker payments */
+paymentForm.addEventListener("submit",e=>{
+ e.preventDefault();
+ let li=document.createElement("li");
+ li.textContent=[...paymentForm.querySelectorAll("input")].map(i=>i.value).join(" | ");
+ paymentList.appendChild(li);
+ paymentForm.reset();
 });
 </script>
 
