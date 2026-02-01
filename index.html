@@ -22,8 +22,8 @@ body{
   text-align:center;
   padding:100px 20px
 }
-section{max-width:1100px;margin:auto;padding:50px 20px}
-h2,h3{color:#1f6f63}
+section{max-width:1000px;margin:auto;padding:50px 20px}
+h2{color:#1f6f63}
 .box{
   background:#ffffff;
   padding:28px;
@@ -53,17 +53,14 @@ button{
   border-radius:30px;
   font-size:15px
 }
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:20px
+.notice{
+  background:#fff3d6;
+  padding:16px;
+  border-left:5px solid #d4a73c;
+  font-size:14px;
+  margin-top:18px
 }
-th,td{
-  border:1px solid #ddd;
-  padding:10px;
-  text-align:left
-}
-th{background:#f2f9f7}
+.small{font-size:14px;color:#555}
 footer{
   background:#1f6f63;
   color:#fff;
@@ -71,7 +68,6 @@ footer{
   padding:35px;
   font-size:14px
 }
-.hidden{display:none}
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -94,63 +90,109 @@ footer{
 Led by <strong>Waqeema Jongie</strong></p>
 </div>
 
-<!-- TERMS & SAFEGUARDING -->
 <section>
-<h2>Terms, Safeguarding & Ethics</h2>
-<div class="box highlight">
-<ul>
-<li>Women-only service</li>
-<li>No emergency or crisis intervention</li>
-<li>Safeguarding & child protection enforced</li>
-<li>Islamic ethics guide all support</li>
-<li>No legal or medical advice provided</li>
-<li>Appointments only – no walk-ins</li>
-</ul>
+<h2>What This Website Is About</h2>
+<div class="box">
 <p>
-This service exists to protect dignity, safety, and confidentiality.
-Any misuse will result in removal from the service.
+This website exists to support women affected by <strong>emotional, physical, financial, sexual, and psychological abuse</strong>.
+Support is rooted in Islamic values of dignity, protection, justice, and compassion.
+</p>
+<p>
+Women can learn, book support, receive guidance, and join a safe faith-based network.
 </p>
 </div>
 </section>
 
-<!-- ADMIN LOGIN -->
 <section>
-<h2>Admin Login</h2>
-<div class="box">
-<input type="password" id="adminPass" placeholder="Enter admin password">
-<button onclick="login()">Login</button>
-<p id="loginMsg"></p>
+<h2>Learn About Abuse</h2>
+<div class="box highlight">
+<ul>
+<li>What abuse looks like in marriage & family</li>
+<li>Emotional and financial abuse signs</li>
+<li>Islamic rights of women</li>
+<li>Breaking silence safely</li>
+<li>Healing after abuse</li>
+</ul>
 </div>
 </section>
 
-<!-- ADMIN DASHBOARD -->
-<section id="adminArea" class="hidden">
-<h2>Admin Dashboard</h2>
-
+<section>
+<h2>Search Resources</h2>
 <div class="box">
-<h3>Appointment Records</h3>
-<table>
-<tr><th>Name</th><th>Date</th><th>Notes</th></tr>
-<tr><td>—</td><td>—</td><td>—</td></tr>
-</table>
+<input type="text" placeholder="Search topics about abuse, healing, Islam, safety...">
+<p class="small">Use this to quickly find information and guidance.</p>
 </div>
+</section>
 
+<section>
+<h2>Book an Appointment</h2>
 <div class="box">
-<h3>Worker Enrollment Records</h3>
-<table>
-<tr><th>Worker Name</th><th>Women Enrolled</th></tr>
-<tr><td>—</td><td>—</td></tr>
-</table>
+<!-- EXISTING FORM KEPT -->
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<input name="Full Name" placeholder="Full Name" required>
+<input type="email" name="Email" placeholder="Email" required>
+<select name="Session Type" required>
+<option value="">Session Type</option>
+<option>Initial Support Session</option>
+<option>Follow-Up Session</option>
+</select>
+<button type="submit">Submit Booking Request</button>
+</form>
 </div>
+</section>
 
+<section>
+<h2>Appointment Record (Admin Use)</h2>
 <div class="box">
-<h3>Payment Calculator</h3>
-<label>Number of women enrolled</label>
-<input type="number" id="womenCount" oninput="calcPay()">
-<p><strong>Total Payment: R<span id="payTotal">0</span></strong></p>
-<p class="small">Rate: R150 per woman</p>
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Appointment Record">
+<input name="Woman Name" placeholder="Woman’s Name">
+<input name="Appointment Date" placeholder="Appointment Date">
+<input name="Session Outcome" placeholder="Notes / Outcome">
+<button type="submit">Save Record</button>
+</form>
 </div>
+</section>
 
+<section>
+<h2>Work With Us – Women Only</h2>
+<div class="box highlight">
+<p>
+We welcome women who want to help grow this support service and reach more women safely.
+</p>
+<ul>
+<li>Outreach & awareness</li>
+<li>Referring women to the website</li>
+<li>Community support roles</li>
+</ul>
+<p><strong>Payment:</strong> R150 per woman successfully enrolled.</p>
+</div>
+</section>
+
+<section>
+<h2>Freelancer / Worker Application</h2>
+<div class="box">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Worker Application">
+<input name="Full Name" placeholder="Your Full Name" required>
+<input name="Role Interest" placeholder="How you want to help" required>
+<input name="Payment Details" placeholder="Bank / PayPal details">
+<button type="submit">Apply</button>
+</form>
+</div>
+</section>
+
+<section>
+<h2>Worker Payment Record</h2>
+<div class="box">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Worker Payment Record">
+<input name="Worker Name" placeholder="Worker Name">
+<input name="Women Enrolled" placeholder="Number of women enrolled">
+<input name="Amount Paid" placeholder="Amount Paid (R150 per woman)">
+<button type="submit">Save Payment</button>
+</form>
+</div>
 </section>
 
 <footer>
@@ -161,25 +203,6 @@ Founded by <strong>Waqeema Jongie</strong>
 <a class="whatsapp" href="https://wa.me/27793851140" target="_blank">
 WhatsApp (Scheduling Only)
 </a>
-
-<script>
-const PASSWORD="admin123";
-
-function login(){
-  const p=document.getElementById("adminPass").value;
-  if(p===PASSWORD){
-    document.getElementById("adminArea").classList.remove("hidden");
-    document.getElementById("loginMsg").innerText="Access granted";
-  }else{
-    document.getElementById("loginMsg").innerText="Incorrect password";
-  }
-}
-
-function calcPay(){
-  const n=document.getElementById("womenCount").value || 0;
-  document.getElementById("payTotal").innerText=n*150;
-}
-</script>
 
 </body>
 </html>
