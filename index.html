@@ -2,46 +2,83 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Islamic Support & Healing</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Islamic Support & Healing</title>
 
 <style>
 body{
-  margin:0;font-family:Arial,sans-serif;
+  margin:0;
+  font-family:Arial,sans-serif;
   background:linear-gradient(135deg,#e6f6f2,#fef6e4);
-  color:#2f3e3e;line-height:1.7
+  color:#2f3e3e;
+  line-height:1.7
 }
 .hero{
   background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
   url("https://images.unsplash.com/photo-1529070538774-1843cb3265df");
-  background-size:cover;background-position:center;
-  color:#fff;text-align:center;padding:100px 20px
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+  padding:100px 20px
 }
 section{max-width:1000px;margin:auto;padding:50px 20px}
 h2{color:#1f6f63}
 .box{
-  background:#fff;padding:28px;border-left:6px solid #d4a73c;
-  border-radius:10px;margin-top:18px;
+  background:#ffffff;
+  padding:28px;
+  border-left:6px solid #d4a73c;
+  border-radius:10px;
+  margin-top:18px;
   box-shadow:0 6px 20px rgba(0,0,0,.08)
 }
-.highlight{background:#fff9e6}
-mark{background:#ffe066;padding:2px}
-input,textarea,select{width:100%;padding:12px;margin-top:10px}
+.highlight{
+  background:linear-gradient(135deg,#e8fff8,#fff9e6);
+  border-left:6px solid #1f6f63
+}
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ccc
+}
 button{
-  background:#1f6f63;color:#fff;border:none;
-  padding:14px 26px;border-radius:30px;cursor:pointer
+  background:linear-gradient(135deg,#1f6f63,#2fa28f);
+  color:#fff;
+  border:none;
+  padding:14px 26px;
+  margin-top:14px;
+  cursor:pointer;
+  border-radius:30px;
+  font-size:15px
 }
-.category-buttons button{
-  margin:5px;padding:8px 14px;border-radius:20px
+.notice{
+  background:#fff3d6;
+  padding:16px;
+  border-left:5px solid #d4a73c;
+  font-size:14px;
+  margin-top:18px
 }
-.notice{background:#fff3d6;padding:16px;margin-top:18px}
-footer{background:#1f6f63;color:#fff;text-align:center;padding:30px}
+.small{font-size:14px;color:#555}
+footer{
+  background:#1f6f63;
+  color:#fff;
+  text-align:center;
+  padding:35px;
+  font-size:14px
+}
 .whatsapp{
-  position:fixed;bottom:20px;right:20px;
-  background:#25D366;color:#fff;padding:14px 22px;
-  border-radius:50px;text-decoration:none
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:16px 24px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold
 }
-.hidden{display:none}
 </style>
 </head>
 
@@ -53,71 +90,143 @@ footer{background:#1f6f63;color:#fff;text-align:center;padding:30px}
 Led by <strong>Waqeema Jongie</strong></p>
 </div>
 
-<!-- SEARCH -->
-<section id="searchSection">
+<section>
+<h2>What This Website Is About</h2>
+<div class="box">
+<p>
+Support for women affected by emotional, physical, financial, sexual, and psychological abuse.
+Grounded in Islamic values of dignity, justice, compassion, and safety.
+</p>
+</div>
+</section>
+
+<section>
+<h2>Learn About Abuse</h2>
+<div class="box highlight">
+<ul>
+<li>Signs of abuse</li>
+<li>Islamic rights of women</li>
+<li>Healing and safety planning</li>
+</ul>
+</div>
+</section>
+
+<section>
 <h2>Search Resources</h2>
 <div class="box">
-<input id="searchInput" placeholder="Search abuse, booking, payment, freelancer…" onkeyup="searchSite()">
-<div class="category-buttons">
-<button onclick="filterCategory('all')">All</button>
-<button onclick="filterCategory('abuse')">Abuse</button>
-<button onclick="filterCategory('booking')">Booking</button>
-<button onclick="filterCategory('payment')">Payment</button>
-<button onclick="filterCategory('freelancer')">Freelancer</button>
-</div>
-<p id="noResults" class="hidden"><strong>No results found.</strong></p>
+<input type="text" placeholder="Search topics…">
 </div>
 </section>
 
-<!-- CONTENT SECTIONS -->
-<section data-category="abuse">
-<h2>Learn About Abuse</h2>
-<div class="box searchable">
-<p>Emotional, physical, financial, sexual and psychological abuse explained from an Islamic perspective.</p>
-</div>
-</section>
-
-<section data-category="payment">
-<h2>Payment Information</h2>
-<div class="box searchable">
-<p><strong>Fee:</strong> R150</p>
-<p><strong>Bank:</strong> Capitec | <strong>Account:</strong> 2349215993</p>
+<section>
+<h2>Payment Information (Required Before Booking)</h2>
+<div class="box highlight">
+<p><strong>Booking Fee:</strong> R150</p>
+<p><strong>Bank:</strong> Capitec Bank<br>
+<strong>Account Number:</strong> 2349215993<br>
+<strong>Account Type:</strong> Savings<br>
+<strong>Reference:</strong> Your Full Name</p>
 <p><strong>PayPal:</strong> abuseawareness12@gmail.com</p>
 </div>
 </section>
 
-<section data-category="booking">
-<h2>Book an Appointment</h2>
-<div class="box searchable">
+<section>
+<h2>Book an Appointment (Auto-Approved)</h2>
+<div class="box">
 <form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST" enctype="multipart/form-data">
-<input type="hidden" name="_autoresponse" value="Booking approved pending payment verification.">
+<input type="hidden" name="_subject" value="New Booking">
+<input type="hidden" name="_autoresponse" value="Your booking has been automatically approved pending payment verification. Invoice issued.">
 <input name="Full Name" placeholder="Full Name" required>
 <input type="email" name="Email" placeholder="Email" required>
+
+<label>Preferred Session Date</label>
 <input type="date" name="Session Date" required>
-<select required><option>I have paid</option></select>
-<input type="file" name="Proof of Payment">
+
+<select name="Session Type" required>
+<option value="">Session Type</option>
+<option>Initial Support Session</option>
+<option>Follow-Up Session</option>
+</select>
+
+<label>Payment Status</label>
+<select id="payConfirm" required>
+<option value="">Confirm payment</option>
+<option value="paid">I have paid</option>
+</select>
+
+<label>Upload Proof of Payment</label>
+<input type="file" name="Proof of Payment" accept=".jpg,.png,.pdf">
+
 <button type="submit">Submit Booking</button>
 </form>
 </div>
 </section>
 
-<section data-category="freelancer">
-<h2>Freelancer / Worker Application</h2>
-<div class="box searchable">
-<p>Earn R150 per woman enrolled.</p>
+<section>
+<h2>Session Availability</h2>
+<div class="box highlight">
+<p>Sessions: Monday – Friday | 09:00 – 16:00<br>
+Online / WhatsApp | 3–5 working days</p>
+</div>
+</section>
+
+<section>
+<h2>Admin – Appointment Records</h2>
+<div class="box">
 <form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
-<input name="Full Name" required>
-<input name="Role Interest" required>
-<input name="Payment Details">
+<input type="hidden" name="_subject" value="Admin Record">
+<input name="Woman Name" placeholder="Woman’s Name">
+<input name="Date" placeholder="Appointment Date">
+<select name="Payment Status">
+<option>Pending</option>
+<option>Paid</option>
+</select>
+<textarea name="Notes" placeholder="Notes"></textarea>
+<button type="submit">Save Record</button>
+</form>
+</div>
+</section>
+
+<section>
+<h2>Work With Us – Women Only</h2>
+<div class="box highlight">
+<p>Earn <strong>R150 per woman</strong> you successfully enroll.</p>
+</div>
+</section>
+
+<section>
+<h2>Freelancer / Worker Application</h2>
+<div class="box">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Worker Application">
+<input name="Full Name" placeholder="Full Name" required>
+<input name="Role Interest" placeholder="How you want to help" required>
+<input name="Payment Details" placeholder="Bank / PayPal details">
 <button type="submit">Apply</button>
 </form>
 </div>
 </section>
 
 <section>
+<h2>Worker Payment Records</h2>
+<div class="box">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Worker Payment">
+<input name="Worker Name" placeholder="Worker Name">
+<input name="Women Enrolled" placeholder="Women Enrolled">
+<input name="Amount Paid" placeholder="Amount Paid">
+<button type="submit">Save</button>
+</form>
+</div>
+</section>
+
+<section>
 <h2>Legal & Safeguarding</h2>
-<div class="box searchable">
-<p>POPIA compliant • Privacy protected • Women-only safeguarding policies apply.</p>
+<div class="box small">
+<p>
+Privacy Policy | POPIA Compliant | Safeguarding Policy<br>
+Payments are non-refundable. Records are securely emailed.
+</p>
 </div>
 </section>
 
@@ -126,34 +235,14 @@ Led by <strong>Waqeema Jongie</strong></p>
 Founded by <strong>Waqeema Jongie</strong>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/27793851140">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/27793851140" target="_blank">WhatsApp</a>
 
 <script>
-function searchSite(){
- let q=document.getElementById("searchInput").value.toLowerCase();
- let found=false;
- document.querySelectorAll(".searchable").forEach(box=>{
-   let text=box.innerText.toLowerCase();
-   box.innerHTML=box.innerHTML.replace(/<mark>|<\/mark>/g,"");
-   if(text.includes(q)){
-     found=true;
-     box.parentElement.style.display="";
-     box.innerHTML=box.innerHTML.replace(
-       new RegExp(q,"gi"),m=>"<mark>"+m+"</mark>"
-     );
-   }else{
-     box.parentElement.style.display="none";
-   }
- });
- document.getElementById("noResults").classList.toggle("hidden",found);
- localStorage.setItem("lastSearch",q);
-}
-
-function filterCategory(cat){
- document.querySelectorAll("section").forEach(sec=>{
-   sec.style.display = (cat==="all"||sec.dataset.category===cat||!sec.dataset.category)?"":"none";
- });
-}
+document.querySelector("form").addEventListener("submit",function(e){
+ if(document.getElementById("payConfirm").value!=="paid"){
+  e.preventDefault(); alert("Payment confirmation required.");
+ }
+});
 </script>
 
 </body>
