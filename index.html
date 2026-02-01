@@ -96,8 +96,9 @@ Led by <strong>Waqeema Jongie</strong></p>
 <h2>What This Website Is About</h2>
 <div class="box">
 <p>
-Support for women affected by emotional, physical, financial, sexual, and psychological abuse.
-Grounded in Islamic values of dignity, justice, compassion, and safety.
+Support for women affected by emotional, physical, financial, sexual,
+and psychological abuse. Grounded in Islamic values of dignity,
+justice, compassion, and safety.
 </p>
 </div>
 </section>
@@ -124,21 +125,32 @@ Grounded in Islamic values of dignity, justice, compassion, and safety.
 <section>
 <h2>Payment Information (Required Before Booking)</h2>
 <div class="box highlight searchable">
-<p><strong>Booking Fee:</strong> R150</p>
+<p><strong>Session Rate:</strong> R900 per hour</p>
+
 <p><strong>Bank:</strong> Capitec Bank<br>
 <strong>Account Number:</strong> 2349215993<br>
 <strong>Account Type:</strong> Savings<br>
 <strong>Reference:</strong> Your Full Name</p>
+
 <p><strong>PayPal:</strong> abuseawareness12@gmail.com</p>
+
+<a id="paypalBtn" target="_blank">
+<button type="button">Pay via PayPal</button>
+</a>
 </div>
 </section>
 
 <section>
 <h2>Book an Appointment (Auto-Approved)</h2>
 <div class="box">
-<form id="bookingForm" action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST" enctype="multipart/form-data">
-<input type="hidden" name="_subject" value="New Booking">
-<input type="hidden" name="_autoresponse" value="Your booking request has been received. Payment will be manually verified before final confirmation.">
+<form id="bookingForm"
+action="https://formsubmit.co/abuseawareness12@gmail.com"
+method="POST"
+enctype="multipart/form-data">
+
+<input type="hidden" name="_subject" id="emailSubject">
+<input type="hidden" name="_autoresponse" id="autoReply">
+<input type="hidden" name="Total Amount" id="totalAmount">
 
 <input name="Full Name" required placeholder="Full Name">
 <input type="email" name="Email" required placeholder="Email">
@@ -150,12 +162,22 @@ Grounded in Islamic values of dignity, justice, compassion, and safety.
 <option>Follow-Up Session</option>
 </select>
 
-<select id="payConfirm" required>
-<option value="">Confirm payment</option>
-<option value="paid">I have paid</option>
+<select id="hours" name="Session Hours" required>
+<option value="">Select Session Duration</option>
+<option value="1">1 Hour – R900</option>
+<option value="2">2 Hours – R1800</option>
+<option value="3">3 Hours – R2700</option>
 </select>
 
-<input type="file" name="Proof of Payment" accept=".jpg,.png,.pdf">
+<p id="totalDisplay" class="notice hidden"></p>
+
+<select id="payConfirm" required>
+<option value="">Confirm payment</option>
+<option value="paid">I have paid the exact amount</option>
+</select>
+
+<input type="file" name="Proof of Payment" accept=".jpg,.png,.pdf" required>
+
 <button type="submit">Submit Booking</button>
 </form>
 </div>
@@ -200,7 +222,7 @@ Online / WhatsApp | 3–5 working days</p>
 <section>
 <h2>Freelancer / Worker Application</h2>
 <div class="box">
-<form id="workerForm" action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
+<form action="https://formsubmit.co/abuseawareness12@gmail.com" method="POST">
 <input type="hidden" name="_subject" value="Worker Application">
 <input name="Full Name" required placeholder="Full Name">
 <input name="Role Interest" required placeholder="How you want to help">
@@ -241,50 +263,71 @@ Founded by <strong>Waqeema Jongie</strong>
 <a class="whatsapp" href="https://wa.me/27793851140" target="_blank">WhatsApp</a>
 
 <script>
-const ADMIN_PASSWORD="admin123";
+const ADMIN_PASSWORD = "admin123";
+const RATE = 900;
 
-/* Booking payment check */
-document.getElementById("bookingForm").addEventListener("submit",e=>{
- if(document.getElementById("payConfirm").value!=="paid"){
-  e.preventDefault();
-  alert("Payment confirmation required.");
- }
+const hours = document.getElementById("hours");
+const paypalBtn = document.getElementById("paypalBtn");
+const totalDisplay = document.getElementById("totalDisplay");
+const totalAmount = document.getElementById("totalAmount");
+const emailSubject = document.getElementById("emailSubject");
+const autoReply = document.getElementById("autoReply");
+const bookingForm = document.getElementById("bookingForm");
+const payConfirm = document.getElementById("payConfirm");
+
+hours.addEventListener("change", () => {
+  const total = hours.value * RATE;
+
+  totalAmount.value = "R" + total;
+  totalDisplay.textContent = "Total payable amount: R" + total;
+  totalDisplay.classList.remove("hidden");
+
+  /* ✅ FIXED PAYPAL BUTTON */
+  paypalBtn.href = "https://www.paypal.com/paypalme/abuseawareness12/" + total;
+
+  emailSubject.value = "New Booking – R" + total;
+  autoReply.value =
+    "Your booking was received.\nTotal paid: R" + total;
 });
 
-/* Search */
-document.getElementById("searchInput").addEventListener("input",function(){
- let q=this.value.toLowerCase(),found=false;
- document.querySelectorAll(".searchable").forEach(sec=>{
-  let text=sec.innerText.toLowerCase();
-  sec.style.display=text.includes(q)?"block":"none";
-  if(text.includes(q))found=true;
- });
- document.getElementById("noResults").classList.toggle("hidden",found);
+bookingForm.addEventListener("submit", e => {
+  if (payConfirm.value !== "paid") {
+    e.preventDefault();
+    alert("Payment confirmation required.");
+  }
 });
 
-/* Admin unlock */
+searchInput.addEventListener("input", function () {
+  let q = this.value.toLowerCase(), found = false;
+  document.querySelectorAll(".searchable").forEach(sec => {
+    let text = sec.innerText.toLowerCase();
+    sec.style.display = text.includes(q) ? "block" : "none";
+    if (text.includes(q)) found = true;
+  });
+  noResults.classList.toggle("hidden", found);
+});
+
 function unlockAdmin(){
- if(document.getElementById("adminPass").value===ADMIN_PASSWORD){
-  document.getElementById("adminForm").classList.remove("hidden");
- }
+  if(adminPass.value === ADMIN_PASSWORD){
+    adminForm.classList.remove("hidden");
+  }
 }
 
-/* Admin records */
-adminForm.addEventListener("submit",e=>{
- e.preventDefault();
- let li=document.createElement("li");
- li.textContent=new FormData(adminForm).get("Woman Name");
- adminList.appendChild(li);
- adminForm.reset();
+adminForm.addEventListener("submit", e => {
+  e.preventDefault();
+  let li = document.createElement("li");
+  li.textContent = new FormData(adminForm).get("Woman Name");
+  adminList.appendChild(li);
+  adminForm.reset();
 });
 
-/* Worker payments */
-paymentForm.addEventListener("submit",e=>{
- e.preventDefault();
- let li=document.createElement("li");
- li.textContent=[...paymentForm.querySelectorAll("input")].map(i=>i.value).join(" | ");
- paymentList.appendChild(li);
- paymentForm.reset();
+paymentForm.addEventListener("submit", e => {
+  e.preventDefault();
+  let li = document.createElement("li");
+  li.textContent = [...paymentForm.querySelectorAll("input")]
+    .map(i => i.value).join(" | ");
+  paymentList.appendChild(li);
+  paymentForm.reset();
 });
 </script>
 
