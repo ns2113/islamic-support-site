@@ -282,7 +282,11 @@ hours.addEventListener("change", () => {
   totalDisplay.textContent = "Total payable amount: R" + total;
   totalDisplay.classList.remove("hidden");
 
-  paypalBtn.href = "https://www.paypal.me/Nizaamuddeen/" + total;
+  // ✅ NEW FIX ADDED — PayPal FORCED to South African Rand (ZAR)
+  paypalBtn.href =
+    "https://www.paypal.com/paypalme/Nizaamuddeen?amount=" +
+    total +
+    "&currencyCode=ZAR";
 
   emailSubject.value = "New Booking – R" + total;
   autoReply.value =
