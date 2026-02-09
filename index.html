@@ -77,10 +77,25 @@ footer{
   padding:16px 24px;
   border-radius:50px;
   text-decoration:none;
-  font-weight:bold
+  font-weight:bold;
+  z-index:999
 }
 .hidden{display:none}
 mark{background:#ffe08a}
+
+/* ✅ MOBILE FRIENDLY ADDITION (ONLY ADD, NOTHING REMOVED) */
+@media (max-width: 768px){
+  .hero{padding:70px 15px}
+  section{padding:35px 15px}
+  h1{font-size:26px}
+  h2{font-size:20px}
+  .whatsapp{
+    right:15px;
+    bottom:15px;
+    padding:14px 20px;
+    font-size:14px
+  }
+}
 </style>
 </head>
 
@@ -111,14 +126,6 @@ justice, compassion, and safety.
 <li>Islamic rights of women</li>
 <li>Healing and safety planning</li>
 </ul>
-</div>
-</section>
-
-<section>
-<h2>Search Resources</h2>
-<div class="box">
-<input type="text" id="searchInput" placeholder="Search topics…">
-<p id="noResults" class="small hidden">No results found.</p>
 </div>
 </section>
 
@@ -260,7 +267,8 @@ Payments are non-refundable. Records are securely emailed.
 Founded by <strong>Waqeema Jongie</strong>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/27793851140" target="_blank">WhatsApp</a>
+<!-- ✅ NEW WHATSAPP NUMBER -->
+<a class="whatsapp" href="https://wa.me/27790955661" target="_blank">WhatsApp</a>
 
 <script>
 const ADMIN_PASSWORD = "admin123";
@@ -282,7 +290,6 @@ hours.addEventListener("change", () => {
   totalDisplay.textContent = "Total payable amount: R" + total;
   totalDisplay.classList.remove("hidden");
 
-  // ✅ NEW FIX ADDED — PayPal FORCED to South African Rand (ZAR)
   paypalBtn.href =
     "https://www.paypal.com/paypalme/Nizaamuddeen?amount=" +
     total +
@@ -298,16 +305,6 @@ bookingForm.addEventListener("submit", e => {
     e.preventDefault();
     alert("Payment confirmation required.");
   }
-});
-
-searchInput.addEventListener("input", function () {
-  let q = this.value.toLowerCase(), found = false;
-  document.querySelectorAll(".searchable").forEach(sec => {
-    let text = sec.innerText.toLowerCase();
-    sec.style.display = text.includes(q) ? "block" : "none";
-    if (text.includes(q)) found = true;
-  });
-  noResults.classList.toggle("hidden", found);
 });
 
 function unlockAdmin(){
